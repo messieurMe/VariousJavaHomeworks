@@ -1,0 +1,24 @@
+@echo off
+
+SET home=%cd%\..\..\..\..\..\..\..\java-advanced-2020
+SET our_directory=%cd%
+SET pkg_name_sec=ru\ifmo\rain\kuliev\implementor
+SET pkg_name_dots=ru.ifmo.rain.kuliev.implementor
+SET mod_dir_sec=info\kgeorgiy\java\advanced\implementor
+SET mod_dir_dots=info.kgeorgiy.java.advanced.implementor\info\kgeorgiy\java\advanced\implementor
+
+@echo on
+
+javadoc -d %our_directory%\_javadoc -link https://docs.oracle.com/en/java/javase/11/docs/api^
+ -cp %home%\artifacts\info.kgeorgiy.java.advanced.implementor.jar ^
+ -private -author -version -html5^
+ %our_directory%\*.java ^
+ %home%\modules\%mod_dir_dots%\Impler.java ^
+ %home%\modules\%mod_dir_dots%\JarImpler.java ^
+ %home%\modules\%mod_dir_dots%\ImplerException.java
+
+@echo off
+echo --------
+echo Done
+:loop
+goto loop

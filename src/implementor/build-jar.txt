@@ -1,0 +1,21 @@
+SET home=%cd%\..\..\..\..\..\..\..\java-advanced-2020
+SET our_directory=%cd%
+SET pkg_name=ru\ifmo\rain\kuliev\implementor
+SET pkg_name_dots=ru.ifmo.rain.kuliev.implementor
+SET mod_dir=info\kgeorgiy\java\advanced\implementor
+SET mod_dir_dots=info.kgeorgiy.java.advanced.implementor
+SET thus=%home%\%pkg_name%
+
+javac -d %our_directory%\_build ^
+-cp %home%\modules\%mod_dir_dots% %our_directory%\*.java
+
+echo Main-Class: %pkg_name_dots%.JarImplementor > %our_directory%\MANIFEST.MF
+
+jar cfm %our_directory%\_implementor.jar %our_directory%\MANIFEST.MF -C %our_directory%\_build\ .
+
+@echo off
+echo ----------
+echo Done
+
+:loop
+goto loop
